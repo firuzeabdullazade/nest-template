@@ -9,7 +9,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  createProduct(@Body() request: RegisterUserRequest): number {
+  registerUser(@Body() request: RegisterUserRequest): number {
     console.debug(request);
     return this.usersService.register(request);
   }
