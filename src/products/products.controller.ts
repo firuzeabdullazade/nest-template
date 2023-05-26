@@ -7,30 +7,29 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { Patch } from '@nestjs/common/decorators';
 import { CreateProductRequest } from 'src/models/createProductRequest';
 import { Product } from 'src/models/product';
-import { ProductService } from './product.service';
+import { ProductsService } from './products.service';
 
 @Controller('products')
 export class ProductsController {
-  constructor(private readonly productService: ProductService) {}
+  constructor(private readonly productsService: ProductsService) {}
 
   @Get()
   getProducts(): Product[] {
     console.log(`GET products`);
-    return this.productService.getProducts();
+    return this.productsService.getProducts();
   }
 
   @Get(':id')
   getProduct(@Param('id') id: string): Product {
     console.log(`GET product with id ${id}`);
-    return this.productService.getProductById(+id);
+    return this.productsService.getProductById(+id);
   }
 
   @Post()
   createProduct(@Body() request: CreateProductRequest): number {
-    return this.productService.createProduct(request);
+    return this.productsService.createProduct(request);
   }
 
   @Put(':id')
@@ -38,16 +37,11 @@ export class ProductsController {
     @Param('id') id: string,
     @Body() request: CreateProductRequest,
   ) {
-    this.productService.updateProduct(+id, request);
+    this.productsService.updateProduct(+id, request);
   }
 
   @Delete(':id')
   deleteProduct(@Param('id') id: string) {
-    this.productService.deleteProduct(+id);
-  }
-
-  @Patch(':id/:count')
-  changeProductCount(@Param('id') id: string, @Param('count') count: string) {
-    this.productService.changeProductCount(+id, +count);
+    this.productsService.deleteProduct(+id);
   }
 }

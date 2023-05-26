@@ -1,4 +1,7 @@
 export interface CreateProductRequest {
-  name: string;
-  categoryId: number;
+  title: string;
+  imageColor: string;
+  colors: string[];
+  sizes: string[];
+  price: number;
 }

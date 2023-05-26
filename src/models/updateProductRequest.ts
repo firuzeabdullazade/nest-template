@@ -1,5 +1,4 @@
-export interface Product {
-  id: number;
+export interface UpdateProductRequest {
   title: string;
   imageColor: string;
   colors: string[];
