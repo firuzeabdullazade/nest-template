@@ -7,7 +7,6 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { Patch } from '@nestjs/common/decorators';
 import { CreateProductRequest } from 'src/models/createProductRequest';
 import { Product } from 'src/models/product';
 import { ProductService } from './product.service';
@@ -44,10 +43,5 @@ export class ProductsController {
   @Delete(':id')
   deleteProduct(@Param('id') id: string) {
     this.productService.deleteProduct(+id);
-  }
-
-  @Patch(':id/:count')
-  changeProductCount(@Param('id') id: string, @Param('count') count: string) {
-    this.productService.changeProductCount(+id, +count);
   }
 }

@@ -1,4 +1,4 @@
-export interface CreateProductRequest {
+export interface UpdateProductRequest {
   categoryId: number;
   title: string;
   image?: string;

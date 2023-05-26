@@ -1,37 +1,80 @@
 import { Injectable } from '@nestjs/common';
 import { CreateProductRequest } from 'src/models/createProductRequest';
 import { Product } from 'src/models/product';
+import { UpdateProductRequest } from 'src/models/updateProductRequest';
 
 let products: Product[] = [
   {
     id: 1,
-    name: 'Pen',
-    count: 10,
     categoryId: 1,
+    title: 'Product 1',
+    imageColor: 'red',
+    colors: ['black', 'orange'],
+    sizes: ['XS', 'S', 'L'],
+    price: 1000,
   },
   {
     id: 2,
-    name: 'Apple',
-    count: 5,
     categoryId: 2,
+    title: 'Product 2',
+    imageColor: 'yellow',
+    colors: ['black', 'white'],
+    sizes: ['S', 'L'],
+    price: 200,
   },
   {
     id: 3,
-    name: 'ApplePen',
-    count: 7,
     categoryId: 3,
+    title: 'Product 3',
+    imageColor: 'green',
+    colors: ['red', 'white'],
+    sizes: ['L', 'XL'],
+    price: 400,
   },
   {
     id: 4,
-    name: 'Pineapple',
-    count: 16,
-    categoryId: 2,
+    categoryId: 1,
+    title: 'Product 4',
+    imageColor: 'blue',
+    colors: ['orange'],
+    sizes: ['XS', 'S'],
+    price: 500,
   },
   {
     id: 5,
-    name: 'PineapplePen',
-    count: 3,
+    categoryId: 2,
+    title: 'Product 5',
+    imageColor: 'deepskyblue',
+    colors: ['white'],
+    sizes: ['XS', 'L'],
+    price: 1000,
+  },
+  {
+    id: 6,
     categoryId: 3,
+    title: 'Product 6',
+    imageColor: 'lightgreen',
+    colors: ['black', 'blue'],
+    sizes: ['L'],
+    price: 600,
+  },
+  {
+    id: 7,
+    categoryId: 1,
+    title: 'Product 7',
+    imageColor: 'purple',
+    colors: ['white', 'green', 'yellow'],
+    sizes: ['XS', 'S', 'L', 'XL'],
+    price: 700,
+  },
+  {
+    id: 8,
+    categoryId: 2,
+    title: 'Product 8',
+    imageColor: 'tomato',
+    colors: ['red', 'orange'],
+    sizes: ['M'],
+    price: 200,
   },
 ];
 
@@ -49,27 +92,31 @@ export class ProductService {
     const newId = products[products.length - 1].id + 1;
     const newProduct: Product = {
       id: newId,
-      name: request.name,
-      count: 0,
       categoryId: request.categoryId,
+      title: request.title,
+      imageColor: request.imageColor,
+      colors: request.colors,
+      sizes: request.sizes,
+      price: request.price,
     };
     products.push(newProduct);
 
     return newId;
   }
 
-  updateProduct(id: number, request: CreateProductRequest) {
+  updateProduct(id: number, request: UpdateProductRequest) {
     const productToChange = this.getProductById(id);
+    if (!productToChange) return;
+
     productToChange.categoryId = request.categoryId;
-    productToChange.name = request.name;
+    productToChange.colors = request.colors;
+    productToChange.imageColor = request.imageColor;
+    productToChange.price = request.price;
+    productToChange.sizes = request.sizes;
+    productToChange.title = request.title;
   }
 
   deleteProduct(id: number) {
     products = products.filter((product) => product.id !== id);
-  }
-
-  changeProductCount(id: number, count: number) {
-    const productToChange = this.getProductById(id);
-    productToChange.count = count;
   }
 }
