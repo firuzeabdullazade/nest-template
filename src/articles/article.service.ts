@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CreateArticleRequest } from 'src/models/createArticleRequest';
-import { ArticlesGridItemProps } from 'src/models/Article';
+import { ArticlesGridItemProps } from 'src/models/article';
 import { UpdateArticleRequest } from 'src/models/updateArticleRequest';
 
 let articles: ArticlesGridItemProps[] = [

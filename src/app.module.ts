@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { ArticleService } from './products/article.service';
-import { ArticlesController } from './products/articles.controller';
+import { ArticleService } from './articles/article.service';
+import { ArticlesController } from './articles/articles.controller';
 import { UsersController } from './users/users.controller';
 import { UsersService } from './users/users.service';
 
