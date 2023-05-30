@@ -1,5 +1,4 @@
-export interface ArticlesGridItemProps {
-  postId: number;
+export interface UpdateArticleRequest {
   date: string;
   tag: string;
   imageSrc: string;
