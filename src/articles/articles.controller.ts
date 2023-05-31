@@ -7,7 +7,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { ArticlesGridItemProps } from 'src/models/product';
+import { ArticlesGridItemProps } from 'src/models/article';
 import { ArticleService } from './article.service';
 import { CreateArticleRequest } from 'src/models/createArticleRequest';
 
