@@ -1,47 +1,26 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Put,
-} from '@nestjs/common';
-import { ArticlesGridItemProps } from 'src/models/article';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { ArticlesGridItem } from 'src/models/article';
 import { ArticleService } from './article.service';
-import { CreateArticleRequest } from 'src/models/createArticleRequest';
+import { FilterArticlesRequest } from 'src/models/filterArticlesRequest';
 
 @Controller('articles')
 export class ArticlesController {
   constructor(private readonly productService: ArticleService) {}
 
   @Get()
-  getArticles(): ArticlesGridItemProps[] {
+  getArticles(): ArticlesGridItem[] {
     console.log(`GET articles`);
     return this.productService.getArticles();
   }
 
   @Get(':id')
-  getArticle(@Param('id') id: string): ArticlesGridItemProps {
+  getArticle(@Param('id') id: string): ArticlesGridItem {
     console.log(`GET product with id ${id}`);
     return this.productService.getArticleById(+id);
   }
 
-  @Post()
-  createArticle(@Body() request: CreateArticleRequest): number {
-    return this.productService.createArticle(request);
-  }
-
-  @Put(':id')
-  updateArticle(
-    @Param('id') id: string,
-    @Body() request: CreateArticleRequest,
-  ) {
-    this.productService.updateArticle(+id, request);
-  }
-
-  @Delete(':id')
-  deleteArticle(@Param('id') id: string) {
-    this.productService.deleteArticle(+id);
+  @Post('filter')
+  filterArticles(@Body() request: FilterArticlesRequest): ArticlesGridItem[] {
+    return this.productService.filterArticles(request);
   }
 }
