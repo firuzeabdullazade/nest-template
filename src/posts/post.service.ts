@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { BlogPartGridItem } from 'src/models/post';
+import { Post } from 'src/models/post';
 
-const posts: BlogPartGridItem[] = [
+const posts: Post[] = [
   {
     postId: 1,
     date: '26 December,2022',
@@ -54,11 +54,11 @@ const posts: BlogPartGridItem[] = [
 
 @Injectable()
 export class PostService {
-  getPosts(): BlogPartGridItem[] {
+  getPosts(): Post[] {
     return posts;
   }
 
-  getPostById(id: number): BlogPartGridItem {
+  getPostById(id: number): Post {
     return posts.find((post) => post.postId === id);
   }
 }

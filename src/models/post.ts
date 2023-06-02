@@ -1,4 +1,4 @@
-export interface BlogPartGridItem {
+export interface Post {
   postId: number;
   date: string;
   tag: string;
