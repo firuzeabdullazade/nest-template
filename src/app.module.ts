@@ -6,6 +6,8 @@ import { ArticleService } from './articles/article.service';
 import { ArticlesController } from './articles/articles.controller';
 import { UsersController } from './users/users.controller';
 import { UsersService } from './users/users.service';
+import { PostController } from './posts/posts.controller';
+import { PostService } from './posts/post.service';
 import { ProjectsController } from './projects/projects.controller';
 import { ProjectService } from './projects/project.service';
 
@@ -14,9 +16,10 @@ import { ProjectService } from './projects/project.service';
   controllers: [
     AppController,
     ArticlesController,
+    PostController,
     ProjectsController,
     UsersController,
   ],
-  providers: [AppService, ArticleService, ProjectService, UsersService],
+  providers: [AppService, ArticleService, PostService, ProjectService, UsersService],
 })
 export class AppModule {}
