@@ -9,6 +9,15 @@ const users: User[] = [
     firstName: 'John',
     lastName: 'Doe',
     password: '1234',
+    avatar: '',
+  },
+  {
+    id: 11,
+    email: 'jonny@gmail.com',
+    firstName: 'Johnny',
+    lastName: 'Depp',
+    password: 'qwerty',
+    avatar: '',
   },
 ];
 
