@@ -1,4 +1,4 @@
-export interface ArticlesGridItemProps {
+export interface ArticlesGridItem {
   postId: number;
   date: string;
   tag: string;
@@ -7,4 +7,5 @@ export interface ArticlesGridItemProps {
   secondPostImage: string;
   content: string;
   postContent: string;
+  shortTag: string;
 }
