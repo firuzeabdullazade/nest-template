@@ -8,7 +8,16 @@ const users: User[] = [
     email: 'example2@mail.com',
     firstName: 'John',
     lastName: 'Doe',
-    password: '1234',
+    password: '123456',
+    avatar: '/assets/avatars/person.png',
+  },
+  {
+    id: 11,
+    email: 'jonny@gmail.com',
+    firstName: 'Johnny',
+    lastName: 'Depp',
+    password: 'qwerty',
+    avatar: '/assets/avatars/feedThird.png',
   },
 ];
 

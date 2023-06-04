@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ArticlesGridItem } from 'src/models/article';
+import { CreateReplyRequest } from 'src/models/createReplyRequest';
 import { FilterArticlesRequest } from 'src/models/filterArticlesRequest';
 
 const articles: ArticlesGridItem[] = [
@@ -19,6 +20,7 @@ const articles: ArticlesGridItem[] = [
     Professional guidance from kitchen designers or interior designers specializing in kitchens can be invaluable. These experts possess in-depth knowledge of space planning, storage solutions, and the latest trends in kitchen design. They can help you optimize the available space, provide insights into material selection, and offer innovative ideas that enhance both the functionality and visual appeal of your kitchen.
     </p>`,
     shortTag: 'Kitchen',
+    replies: [],
   },
 
   {
@@ -36,6 +38,7 @@ const articles: ArticlesGridItem[] = [
     Your living room serves as the centerpiece of your home, a space where you can showcase your personal taste and create an inviting atmosphere for gatherings and relaxation. From the layout and structural modifications to the choice of materials and finishing details, every decision you make contributes to the overall ambiance and functionality of the room. By approaching the construction process with careful attention to detail and a clear vision of your desired outcome, you can bring your dream living room to life.
     </p>`,
     shortTag: 'Living Room',
+    replies: [],
   },
 
   {
@@ -53,6 +56,7 @@ const articles: ArticlesGridItem[] = [
     The interior design of your home is a reflection of your unique style and preferences. It goes beyond mere aesthetics, encompassing the thoughtful arrangement of furniture, the selection of color schemes, the play of textures, and the integration of lighting and accessories. A well-designed interior has the power to create a sanctuary that nurtures and inspires you, providing a backdrop for your daily activities and personal experiences.When embarking on an interior design project, it is crucial to start with a clear vision. Consider the overall atmosphere you wish to create and the purpose of the space. Think about how you want to feel when you enter the room and what activities will take place there. Understanding the function and mood you desire will serve as a guiding principle throughout the design process.
     </p>`,
     shortTag: 'Interior Design',
+    replies: [],
   },
 
   {
@@ -71,6 +75,7 @@ const articles: ArticlesGridItem[] = [
     Professional guidance from kitchen designers or interior designers specializing in kitchens can be invaluable. These experts possess in-depth knowledge of space planning, storage solutions, and the latest trends in kitchen design. They can help you optimize the available space, provide insights into material selection, and offer innovative ideas that enhance both the functionality and visual appeal of your kitchen.
     </p>`,
     shortTag: 'Kitchen',
+    replies: [],
   },
 
   {
@@ -88,6 +93,7 @@ const articles: ArticlesGridItem[] = [
     Your living room serves as the centerpiece of your home, a space where you can showcase your personal taste and create an inviting atmosphere for gatherings and relaxation. From the layout and structural modifications to the choice of materials and finishing details, every decision you make contributes to the overall ambiance and functionality of the room. By approaching the construction process with careful attention to detail and a clear vision of your desired outcome, you can bring your dream living room to life.
     </p>`,
     shortTag: 'Living Room',
+    replies: [],
   },
 
   {
@@ -105,6 +111,7 @@ const articles: ArticlesGridItem[] = [
     The interior design of your home is a reflection of your unique style and preferences. It goes beyond mere aesthetics, encompassing the thoughtful arrangement of furniture, the selection of color schemes, the play of textures, and the integration of lighting and accessories. A well-designed interior has the power to create a sanctuary that nurtures and inspires you, providing a backdrop for your daily activities and personal experiences.When embarking on an interior design project, it is crucial to start with a clear vision. Consider the overall atmosphere you wish to create and the purpose of the space. Think about how you want to feel when you enter the room and what activities will take place there. Understanding the function and mood you desire will serve as a guiding principle throughout the design process.
     </p>`,
     shortTag: 'Interior Design',
+    replies: [],
   },
 ];
 
@@ -128,5 +135,10 @@ export class ArticleService {
         (!request.searchword &&
           ((request.tag && article.shortTag === request.tag) || !request.tag)),
     );
+  }
+
+  addReply(id: number, request: CreateReplyRequest): void {
+    const article = this.getArticleById(id);
+    article.replies.push({ ...request });
   }
 }
