@@ -1,3 +1,5 @@
+import { ArticleReply } from './articleReply';
+
 export interface ArticlesGridItem {
   postId: number;
   date: string;
@@ -8,4 +10,5 @@ export interface ArticlesGridItem {
   content: string;
   postContent: string;
   shortTag: string;
+  replies: ArticleReply[];
 }
