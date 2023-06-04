@@ -1,4 +1,6 @@
-export interface ArticlesGridItemProps {
+import { ArticleReply } from './articleReply';
+
+export interface ArticlesGridItem {
   postId: number;
   date: string;
   tag: string;
@@ -7,4 +9,6 @@ export interface ArticlesGridItemProps {
   secondPostImage: string;
   content: string;
   postContent: string;
+  shortTag: string;
+  replies: ArticleReply[];
 }
