@@ -13,9 +13,9 @@ const users: User[] = [
   },
   {
     id: 11,
-    email: 'jonny@gmail.com',
-    firstName: 'Johnny',
-    lastName: 'Depp',
+    email: 'john@gmail.com',
+    firstName: 'John',
+    lastName: 'Smith',
     password: 'qwerty',
     avatar: '/assets/avatars/feedThird.png',
   },
